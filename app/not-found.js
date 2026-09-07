@@ -1,23 +1,19 @@
-"use client";
-
-import Image from "next/image";
 import "./not-found.css";
-import taaimIllustration from "./F91CEB7E-01E6-463E-9B06-E938715D3242.png";
 
 const CONFIG = {
-    name: "طَعِيم",
+    name: "طعِيم",
 };
 
 const NAV_LINKS = [
     { href: "/", label: "الرئيسية" },
     { href: "#menu", label: "القائمة" },
     { href: "#offers", label: "العروض" },
-    { href: "#about", label: "عن طَعِيم" },
+    { href: "#about", label: "عن طعِيم" },
 ];
 
 function Header404() {
     return (
-        <header className="ta-header scrolled">
+        <header className="ta-header">
             <div className="ta-header-inner">
                 <a href="/" className="ta-logo-block">
                     <span className="ta-logo">{CONFIG.name}</span>
@@ -51,10 +47,9 @@ export default function NotFound() {
                 <div className="ta-404-chefhat-outline">🧑‍🍳</div>
 
                 <div className="ta-404-image-wrap">
-                    <Image
-                        src={taaimIllustration}
+                    <img
+                        src="/404-chef.png"
                         alt="طاهي طَعِيم يبحث عن الصفحة المفقودة"
-                        priority
                         className="ta-404-image"
                     />
                 </div>
@@ -80,4 +75,6 @@ export default function NotFound() {
                     لا تقلق .. ستجد طعامك قريباً <span>❤️</span>
                 </p>
             </main>
-        
+        </>
+    );
+}
