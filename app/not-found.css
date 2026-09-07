@@ -16,7 +16,7 @@ html {
 }
 
 body {
-    font-family: "Cairo", Arial, sans-serif;
+    font-family: "Tajawal", Arial, sans-serif;
     background: #fff;
     color: var(--black);
 }
@@ -29,17 +29,12 @@ a {
 .ta-404 {
     position: relative;
     overflow: hidden;
-
     min-height: 100vh;
-
     padding: 60px 24px 80px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     text-align: center;
-
     background: #fdf9f7;
 }
 
@@ -69,10 +64,8 @@ a {
 .ta-404-image-wrap {
     position: relative;
     z-index: 1;
-
     width: 100%;
     max-width: 780px;
-
     margin-bottom: 30px;
 }
 
@@ -102,19 +95,14 @@ a {
 .ta-404-button {
     position: relative;
     z-index: 1;
-
     display: inline-flex;
     align-items: center;
     gap: 10px;
-
     padding: 16px 34px;
-
     background: var(--red);
     color: #fff;
-
     border-radius: 50px;
     font-weight: 900;
-
     box-shadow: 0 12px 35px rgba(237,51,68,.25);
     transition: .25s ease;
 }
