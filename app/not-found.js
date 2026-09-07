@@ -48,7 +48,7 @@ export default function NotFound() {
 
                 <div className="ta-404-image-wrap">
                     <img
-                        src="/404-chef.png"
+                        src="/not-found.PNG"
                         alt="طاهي طَعِيم يبحث عن الصفحة المفقودة"
                         className="ta-404-image"
                     />
