@@ -30,7 +30,7 @@ export default function NotFound() {
             </a>
 
             <p className="ta-404-footer-note">
-                لا تقلق .. ستجد طعامك قريباً <span>❤️</span>
+                لا تتوتر.. أكلك بيجيك لــمـــكانـــك<span>❤️</span>
             </p>
         </main>
     );
