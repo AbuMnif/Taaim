@@ -10,6 +10,7 @@ import "./page.css";
 const CONFIG = {
     name: "طَعِيم",
     englishName: "Ta'aim",
+    logo: "/logo.PNG",
 };
 
 const MENU_ITEMS = [
@@ -84,7 +85,13 @@ function Header() {
             <header className={`ta-header${scrolled ? " scrolled" : ""}`}>
                 <div className="ta-header-inner">
                     <a href="/" className="ta-logo">
-                        <span className="ta-logo-mark">🍽</span>
+                        <span className="ta-logo-mark">
+                            <img
+                                src={CONFIG.logo}
+                                alt={`شعار ${CONFIG.name}`}
+                                className="ta-logo-img"
+                            />
+                        </span>
                         <span>{CONFIG.name}</span>
                     </a>
 
@@ -264,7 +271,13 @@ export default function Home() {
 
                         <div className="ta-hero-visual">
                             <div className="ta-food-circle">
-                                <div className="ta-food-symbol">🍴</div>
+                                <div className="ta-food-symbol">
+                                    <img
+                                        src={CONFIG.logo}
+                                        alt={`شعار ${CONFIG.name}`}
+                                        className="ta-food-symbol-img"
+                                    />
+                                </div>
                             </div>
 
                             <div className="ta-floating-card one">⭐ نكهة مميزة</div>
@@ -351,7 +364,13 @@ export default function Home() {
                 <section className="ta-section gray" id="about">
                     <div className="ta-section-inner">
                         <div className="ta-about">
-                            <div className="ta-about-visual">🍴</div>
+                            <div className="ta-about-visual">
+                                <img
+                                    src={CONFIG.logo}
+                                    alt={`شعار ${CONFIG.name}`}
+                                    className="ta-about-visual-img"
+                                />
+                            </div>
 
                             <div className="ta-about-content">
                                 <h2>
