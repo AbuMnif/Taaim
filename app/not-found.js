@@ -12,7 +12,7 @@ export default function NotFound() {
 
             <div className="ta-404-image-wrap">
                 <img
-                    src="/not-found.PNG"
+                    src="/not-found.jbg"
                     alt="طاهي طَعِيم حزين لأن الصفحة غير موجودة - 404"
                     className="ta-404-image"
                 />
