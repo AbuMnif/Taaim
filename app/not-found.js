@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import "./page.css";
+import "./not-found.css";
 import taaimIllustration from "./F91CEB7E-01E6-463E-9B06-E938715D3242.png";
 
 const CONFIG = {
