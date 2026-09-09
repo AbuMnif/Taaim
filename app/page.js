@@ -67,6 +67,64 @@ const MOBILE_LINKS = [
 ];
 
 /* =========================================================
+   WEBSITE CLOSED OVERLAY
+========================================================= */
+
+function ClosedOverlay() {
+    return (
+        <div className="ta-closed-overlay">
+            <div className="ta-closed-bg"></div>
+
+            <div className="ta-closed-content">
+                <div className="ta-closed-sign">
+                    <div className="ta-closed-lock">🔒</div>
+                    <span>تم إغلاق الموقع</span>
+                </div>
+
+                <div className="ta-closed-divider"></div>
+
+                <h1>
+                    لعدم التوصل إلى اتفاق
+                    <br />
+                    <span>مع المطعم</span>
+                </h1>
+
+                <p className="ta-closed-description">
+                    تم إيقاف الموقع حالياً لعدم التوصل إلى اتفاق مع إدارة المطعم.
+                </p>
+
+                <div className="ta-closed-contact">
+                    <div className="ta-contact-item">
+                        <span className="ta-contact-icon">👤</span>
+
+                        <div>
+                            <small>التواصل</small>
+                            <strong>محمد حلمي</strong>
+                        </div>
+                    </div>
+
+                    <div className="ta-contact-line"></div>
+
+                    <a
+                        href="https://wa.me/967783342178"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ta-contact-item whatsapp"
+                    >
+                        <span className="ta-contact-icon">💬</span>
+
+                        <div>
+                            <small>واتساب</small>
+                            <strong dir="ltr">783342178</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+/* =========================================================
    HEADER
 ========================================================= */
 
@@ -76,7 +134,9 @@ function Header() {
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
+
         window.addEventListener("scroll", onScroll, { passive: true });
+
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
@@ -92,6 +152,7 @@ function Header() {
                                 className="ta-logo-img"
                             />
                         </span>
+
                         <span>{CONFIG.name}</span>
                     </a>
 
@@ -143,11 +204,16 @@ function MenuCard({ item, cardRef }) {
 
             <div className="ta-menu-content">
                 <h3>{item.title}</h3>
+
                 <p>{item.description}</p>
 
                 <div className="ta-menu-bottom">
                     <span className="ta-price">{item.price}</span>
-                    <button className="ta-order-small" aria-label="إضافة">
+
+                    <button
+                        className="ta-order-small"
+                        aria-label="إضافة"
+                    >
                         +
                     </button>
                 </div>
@@ -165,12 +231,18 @@ function Footer() {
         <footer className="ta-footer">
             <div className="ta-footer-inner">
                 <div>
-                    <div className="ta-footer-logo">{CONFIG.name}</div>
-                    <p>نكهة تستحق التجربة، وتجربة تستحق العودة.</p>
+                    <div className="ta-footer-logo">
+                        {CONFIG.name}
+                    </div>
+
+                    <p>
+                        نكهة تستحق التجربة، وتجربة تستحق العودة.
+                    </p>
                 </div>
 
                 <div>
                     <h3>روابط سريعة</h3>
+
                     <div className="ta-footer-links">
                         {NAV_LINKS.map((link) => (
                             <a key={link.href} href={link.href}>
@@ -182,6 +254,7 @@ function Footer() {
 
                 <div>
                     <h3>تواصل معنا</h3>
+
                     <div className="ta-footer-links">
                         <a href="#">📞 تواصل معنا</a>
                         <a href="#">📍 موقعنا</a>
@@ -205,7 +278,10 @@ export default function Home() {
     const animatedRefs = useRef([]);
 
     const registerAnimatedRef = (el) => {
-        if (el && !animatedRefs.current.includes(el)) {
+        if (
+            el &&
+            !animatedRefs.current.includes(el)
+        ) {
             animatedRefs.current.push(el);
         }
     };
@@ -214,7 +290,10 @@ export default function Home() {
         const elements = animatedRefs.current;
 
         if (!("IntersectionObserver" in window)) {
-            elements.forEach((el) => el.classList.add("visible"));
+            elements.forEach((el) => {
+                el.classList.add("visible");
+            });
+
             return;
         }
 
@@ -223,11 +302,14 @@ export default function Home() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible");
+
                         observer.unobserve(entry.target);
                     }
                 });
             },
-            { threshold: 0.12 }
+            {
+                threshold: 0.12,
+            }
         );
 
         elements.forEach((el) => observer.observe(el));
@@ -237,10 +319,24 @@ export default function Home() {
 
     return (
         <>
+            {/* =====================================================
+                شاشة إغلاق الموقع
+                تغطي الموقع بالكامل
+            ===================================================== */}
+
+            <ClosedOverlay />
+
+            {/* =====================================================
+                الموقع الأصلي
+            ===================================================== */}
+
             <Header />
 
             <main>
-                {/* HERO */}
+                {/* =================================================
+                    HERO
+                ================================================= */}
+
                 <section className="ta-hero">
                     <div className="ta-hero-inner">
                         <div className="ta-hero-content">
@@ -260,10 +356,17 @@ export default function Home() {
                             </p>
 
                             <div className="ta-hero-actions">
-                                <a href="#menu" className="ta-primary-button">
+                                <a
+                                    href="#menu"
+                                    className="ta-primary-button"
+                                >
                                     🍽️ استعرض القائمة
                                 </a>
-                                <a href="#about" className="ta-secondary-button">
+
+                                <a
+                                    href="#about"
+                                    className="ta-secondary-button"
+                                >
                                     اكتشف طَعِيم
                                 </a>
                             </div>
@@ -280,56 +383,117 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            <div className="ta-floating-card one">⭐ نكهة مميزة</div>
-                            <div className="ta-floating-card two">❤️ صُنعت بحب</div>
+                            <div className="ta-floating-card one">
+                                ⭐ نكهة مميزة
+                            </div>
+
+                            <div className="ta-floating-card two">
+                                ❤️ صُنعت بحب
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* FEATURES */}
+                {/* =================================================
+                    FEATURES
+                ================================================= */}
+
                 <section className="ta-section">
                     <div className="ta-section-inner">
                         <div className="ta-section-head">
-                            <span className="ta-section-kicker">لماذا طَعِيم؟</span>
-                            <h2>أكثر من مجرد وجبة</h2>
-                            <p>نهتم بالتفاصيل الصغيرة التي تجعل تجربة الطعام مختلفة.</p>
+                            <span className="ta-section-kicker">
+                                لماذا طَعِيم؟
+                            </span>
+
+                            <h2>
+                                أكثر من مجرد وجبة
+                            </h2>
+
+                            <p>
+                                نهتم بالتفاصيل الصغيرة التي تجعل تجربة
+                                الطعام مختلفة.
+                            </p>
                         </div>
 
                         <div className="ta-features">
-                            <div className="ta-feature" ref={registerAnimatedRef}>
-                                <div className="ta-feature-icon">🍽️</div>
-                                <h3>مذاق مميز</h3>
-                                <p>نختار المكونات بعناية لنقدم لك مذاقاً تتذكره.</p>
-                            </div>
+                            <div
+                                className="ta-feature"
+                                ref={registerAnimatedRef}
+                            >
+                                <div className="ta-feature-icon">
+                                    🍽️
+                                </div>
 
-                            <div className="ta-feature" ref={registerAnimatedRef}>
-                                <div className="ta-feature-icon">⚡</div>
-                                <h3>خدمة سريعة</h3>
+                                <h3>
+                                    مذاق مميز
+                                </h3>
+
                                 <p>
-                                    لأننا نعرف أن وقتك مهم، نحرص على سرعة
-                                    الخدمة وجودتها.
+                                    نختار المكونات بعناية لنقدم لك
+                                    مذاقاً تتذكره.
                                 </p>
                             </div>
 
-                            <div className="ta-feature" ref={registerAnimatedRef}>
-                                <div className="ta-feature-icon">❤️</div>
-                                <h3>صُنعت بحب</h3>
+                            <div
+                                className="ta-feature"
+                                ref={registerAnimatedRef}
+                            >
+                                <div className="ta-feature-icon">
+                                    ⚡
+                                </div>
+
+                                <h3>
+                                    خدمة سريعة
+                                </h3>
+
                                 <p>
-                                    كل طبق نقدمه يحمل اهتماماً بالتفاصيل
-                                    وشغفاً بالطعام.
+                                    لأننا نعرف أن وقتك مهم، نحرص على
+                                    سرعة الخدمة وجودتها.
+                                </p>
+                            </div>
+
+                            <div
+                                className="ta-feature"
+                                ref={registerAnimatedRef}
+                            >
+                                <div className="ta-feature-icon">
+                                    ❤️
+                                </div>
+
+                                <h3>
+                                    صُنعت بحب
+                                </h3>
+
+                                <p>
+                                    كل طبق نقدمه يحمل اهتماماً
+                                    بالتفاصيل وشغفاً بالطعام.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* MENU */}
-                <section className="ta-section gray" id="menu">
+                {/* =================================================
+                    MENU
+                ================================================= */}
+
+                <section
+                    className="ta-section gray"
+                    id="menu"
+                >
                     <div className="ta-section-inner">
                         <div className="ta-section-head">
-                            <span className="ta-section-kicker">قائمتنا</span>
-                            <h2>اختر ما تشتهيه</h2>
-                            <p>مجموعة من الأطباق المختارة بعناية.</p>
+                            <span className="ta-section-kicker">
+                                قائمتنا
+                            </span>
+
+                            <h2>
+                                اختر ما تشتهيه
+                            </h2>
+
+                            <p>
+                                مجموعة من الأطباق المختارة بعناية.
+                            </p>
                         </div>
 
                         <div className="ta-menu-grid">
@@ -344,24 +508,44 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* OFFER */}
-                <section className="ta-section" id="offers">
+                {/* =================================================
+                    OFFER
+                ================================================= */}
+
+                <section
+                    className="ta-section"
+                    id="offers"
+                >
                     <div className="ta-section-inner">
                         <div className="ta-offer">
                             <div>
-                                <h2>جوعان؟ 😋</h2>
-                                <p>اكتشف قائمتنا واختر وجبتك المفضلة اليوم.</p>
+                                <h2>
+                                    جوعان؟ 😋
+                                </h2>
+
+                                <p>
+                                    اكتشف قائمتنا واختر وجبتك المفضلة اليوم.
+                                </p>
                             </div>
 
-                            <a href="#menu" className="ta-offer-button">
+                            <a
+                                href="#menu"
+                                className="ta-offer-button"
+                            >
                                 اطلب الآن
                             </a>
                         </div>
                     </div>
                 </section>
 
-                {/* ABOUT */}
-                <section className="ta-section gray" id="about">
+                {/* =================================================
+                    ABOUT
+                ================================================= */}
+
+                <section
+                    className="ta-section gray"
+                    id="about"
+                >
                     <div className="ta-section-inner">
                         <div className="ta-about">
                             <div className="ta-about-visual">
@@ -374,21 +558,27 @@ export default function Home() {
 
                             <div className="ta-about-content">
                                 <h2>
-                                    طَعِيم <span>بطريقة مختلفة.</span>
+                                    طَعِيم{" "}
+                                    <span>
+                                        بطريقة مختلفة.
+                                    </span>
                                 </h2>
 
                                 <p>
-                                    في طَعِيم نؤمن أن الطعام ليس مجرد وجبة،
-                                    بل تجربة.
+                                    في طَعِيم نؤمن أن الطعام ليس مجرد
+                                    وجبة، بل تجربة.
                                 </p>
 
                                 <p>
-                                    لذلك نهتم بالمذاق، الجودة، وطريقة تقديم
-                                    كل طبق حتى تكون زيارتك تجربة تستحق
-                                    العودة إليها.
+                                    لذلك نهتم بالمذاق، الجودة، وطريقة
+                                    تقديم كل طبق حتى تكون زيارتك تجربة
+                                    تستحق العودة إليها.
                                 </p>
 
-                                <a href="#menu" className="ta-primary-button">
+                                <a
+                                    href="#menu"
+                                    className="ta-primary-button"
+                                >
                                     اكتشف قائمتنا
                                 </a>
                             </div>
