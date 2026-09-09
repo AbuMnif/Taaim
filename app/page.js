@@ -84,9 +84,9 @@ function ClosedOverlay() {
                 <div className="ta-closed-divider"></div>
 
                 <h1>
-                    نهائياً
+                    
                     <br />
-                    <span>مع المطعم</span>
+                    <span> </span>
                 </h1>
 
                 <p className="ta-closed-description">
@@ -98,7 +98,7 @@ function ClosedOverlay() {
                         <span className="ta-contact-icon">👤</span>
 
                         <div>
-                            <small>التواصل</small>
+                            <small> للتواصل </small>
                             <strong>محمد حلمي</strong>
                         </div>
                     </div>
