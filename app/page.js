@@ -84,7 +84,7 @@ function ClosedOverlay() {
                 <div className="ta-closed-divider"></div>
 
                 <h1>
-                    لعدم التوصل إلى اتفاق
+                    نهائياً
                     <br />
                     <span>مع المطعم</span>
                 </h1>
