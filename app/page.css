@@ -1169,3 +1169,252 @@ img {
         transition-duration: .01ms !important;
     }
 }
+
+/* =========================================================
+   WEBSITE CLOSED OVERLAY
+========================================================= */
+
+.ta-closed-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    direction: rtl;
+    color: #fff;
+    background: #090909;
+}
+
+.ta-closed-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(237, 51, 68, 0.14),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(237, 51, 68, 0.08),
+            transparent 30%
+        ),
+        #090909;
+}
+
+.ta-closed-bg::before,
+.ta-closed-bg::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(237, 51, 68, 0.16);
+}
+
+.ta-closed-bg::before {
+    width: 520px;
+    height: 520px;
+    top: -260px;
+    right: -180px;
+}
+
+.ta-closed-bg::after {
+    width: 420px;
+    height: 420px;
+    bottom: -240px;
+    left: -170px;
+}
+
+.ta-closed-content {
+    position: relative;
+    z-index: 2;
+    width: min(92%, 720px);
+    padding: 45px 35px;
+    text-align: center;
+    animation: taClosedAppear 0.7s ease both;
+}
+
+.ta-closed-sign {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 25px;
+    border: 1px solid rgba(237, 51, 68, 0.5);
+    border-radius: 16px;
+    background: rgba(237, 51, 68, 0.1);
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.3),
+        inset 0 0 30px rgba(237, 51, 68, 0.04);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.ta-closed-lock {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #ed3344;
+    font-size: 21px;
+}
+
+.ta-closed-divider {
+    width: 70px;
+    height: 3px;
+    margin: 32px auto 25px;
+    border-radius: 10px;
+    background: #ed3344;
+    box-shadow: 0 0 20px rgba(237, 51, 68, 0.45);
+}
+
+.ta-closed-content h1 {
+    margin: 0;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.25;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.ta-closed-content h1 span {
+    color: #ed3344;
+}
+
+.ta-closed-description {
+    max-width: 570px;
+    margin: 24px auto 0;
+    color: #a9a9a9;
+    font-size: 17px;
+    line-height: 2;
+}
+
+.ta-closed-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 42px auto 0;
+    padding: 20px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(12px);
+}
+
+.ta-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    text-decoration: none;
+    text-align: right;
+}
+
+.ta-contact-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(237, 51, 68, 0.12);
+    font-size: 21px;
+}
+
+.ta-contact-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.ta-contact-item small {
+    color: #888;
+    font-size: 12px;
+}
+
+.ta-contact-item strong {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.ta-contact-item.whatsapp .ta-contact-icon {
+    background: rgba(37, 211, 102, 0.1);
+}
+
+.ta-contact-line {
+    width: 1px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes taClosedAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+    .ta-closed-content {
+        width: 94%;
+        padding: 30px 15px;
+    }
+
+    .ta-closed-sign {
+        gap: 10px;
+        padding: 10px 16px;
+        font-size: 17px;
+    }
+
+    .ta-closed-lock {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .ta-closed-divider {
+        margin: 25px auto 20px;
+    }
+
+    .ta-closed-content h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+    .ta-closed-description {
+        margin-top: 18px;
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .ta-closed-contact {
+        width: 100%;
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px;
+        margin-top: 30px;
+    }
+
+    .ta-contact-line {
+        width: 80%;
+        height: 1px;
+    }
+
+    .ta-contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
